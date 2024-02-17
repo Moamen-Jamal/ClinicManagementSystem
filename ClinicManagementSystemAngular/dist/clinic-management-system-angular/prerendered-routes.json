@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/BackOffice",
+    "/BackOffice/BackOfficeHome",
+    "/BackOffice/Doctor/DoctorCrud",
+    "/BackOffice/Employee/EmployeeCrud",
+    "/BackOffice/Patient/PatientCrud",
+    "/forbidden",
+    "/Home",
+    "/Login"
+  ]
+}
