@@ -1,0 +1,76 @@
+<br> <br> <br><br><br>
+<div class="row " style="padding: 10px;">
+    <div class="col-3" style="width: 300px;">
+        <button type="button" (click)="add()" style="width: 120px;"
+            class="btn ">Add</button>
+    </div>
+
+    <div class="col-3" style="width: 300px;">
+    </div>
+    <div class="col-6">
+        <button type="button" class="btn  btn-block " style="width: 400px;" 
+        routerLink = "/Home">Go to Clinic Management</button>
+
+    </div>
+</div>
+<div class="input-group">
+    <div class="form-outline">
+      <input type="search" id="form1" placeholder="search with name" class="form-control"
+      [(ngModel)]="nameSearch" name="search" (keydown.enter)="filteringData()" />
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="filteringData()">
+        <i class="bi bi-search"></i>
+    </button>
+    <span style="margin-top: 10px; margin-left:20px; cursor:pointer; border-color: #bbc3cd;" *ngIf="!isDescending" (click)="filteringData(true)">Asc <i class="bi bi-arrow-down"></i></span>
+    <span style="margin-top: 10px; margin-left:20px; cursor:pointer; border-color: #bbc3cd;" *ngIf="isDescending" (click)="filteringData(false)">Desc <i class="bi bi-arrow-up"></i></span>
+  </div>
+<br> <br> <br>
+<div class="containar" style="height: 800px;">
+    <div class="row " style="margin-left: 15px;padding: 10px;">
+        <div class="col-3" style="border-style: darkcyan solid 1px ;margin: 30px; width: 500px; margin-bottom: 50px;"
+            *ngFor="let user of DataList | paginate : options;let index=index">
+            <div class="card border-secondary mb-3 shadow rounded" style="max-width: 18rem;width: 450px">
+
+                <div class="card-body text-secondary">
+                    <div> <img [src]="user.photo" alt="user Photo"
+                            class="profilimg"></div>
+                    <br> <br>
+                    <p class="card-text"
+                        style="font-size: 25px; text-align: center;overflow-wrap: normal;box-sizing: border-box;line-height: 30px;">
+                        {{user.name}}</p>
+                    <p class="card-text" style="font-size: 20px; text-align: center;box-sizing: border-box;">
+                            {{user.email}}</p>
+                    <p class="card-text" style="font-size: 25px; text-align: center;box-sizing: border-box;">
+                        {{user.phone}}</p>
+                </div> 
+                <div class="cardbtn">
+                    <button type="button" (click)="userDetails(user.id)" style="  width: 100px;"
+                        class="btn  rounded-pill shadow rounded">Details</button>
+                </div><br>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div style=" text-align: center;">
+    <!-- <ul class="pagination  justify-content-center" style="margin:20px 0">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul> -->
+    <div class="col-xs-12 text-center margin-top-15" *ngIf="options.totalItems>=options.itemsPerPage">
+        <pagination-controls (pageChange)="getNextPrevData($event)" id='pagination' [maxSize]="10" [directionLinks]="true"
+            autohide="true" previousLabel="Previous" nextLabel="Next">
+        </pagination-controls>
+    </div>
+    <div class="col-xs-12 text-center margin-top-15" *ngIf="options.totalItems==0">
+        No Data Found
+    </div>
+    <!-- <ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading> -->
+</div>

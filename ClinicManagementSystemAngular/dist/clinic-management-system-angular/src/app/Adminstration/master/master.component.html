@@ -1,0 +1,62 @@
+<br> <br> <br><br><br>
+<div class="row " style="padding: 10px;">
+    <div class="col-3"></div>
+    <div class="col-6"><button type="button" class="btn  btn-block  " routerLink = "/Home">Go to Clinic Portal</button></div>
+    <div class="col-3"></div>
+
+</div>
+<br> <br> <br>
+<div class="row " style="margin-left: 100px;padding: 10px;">
+    <div class="col-3" style=" margin: 20px; ">
+        <div class="card border-secondary mb-3 shadow rounded" style="max-width: 18rem;">
+            
+            <div class="card-body text-secondary">
+                <h5 class="card-title" style="font-size: 25px; text-align: center; "><b>Appointments</b></h5>
+                
+                <p class="card-text" style="font-size: 50px; text-align: center;">{{EmployeeDashBoard.totalAppointments?? 0}}</p>
+            </div> <br> <br>
+            <div class="cardheader" >
+            </div>
+        </div>
+
+    </div>
+    <div class="col-3" style="margin: 20px; ">
+        <div class="card border-secondary mb-3 shadow rounded" style="max-width: 18rem;">
+          
+            <div class="card-body text-secondary">
+                <h5 class="card-title" style="font-size: 25px; text-align: center; "><b>Doctors</b></h5>
+                
+                <p class="card-text" style="font-size: 50px; text-align: center;">{{EmployeeDashBoard.totalDoctors}}</p>
+            </div> <br> <br>
+            <div class="cardheader">
+            </div>
+        </div>
+    </div>
+    <div class="col-3" style="margin: 20px; ">
+        <div class="card border-secondary mb-3 shadow rounded" style="max-width: 18rem;">
+           
+            <div class="card-body text-secondary">
+                <h5 class="card-title" style="font-size: 25px; text-align: center; "><b>Patients</b></h5>
+                
+                <p class="card-text" style="font-size: 50px; text-align: center;">{{EmployeeDashBoard.totalPatients}}</p>
+            </div> <br> <br>
+            <div class="cardheader" >
+            </div>
+        </div>
+
+    </div>
+    <div class="col-3" style="margin: 20px; ">
+        <div class="card border-secondary mb-3 shadow rounded" style="max-width: 18rem;">
+            
+            <div class="card-body text-secondary">
+                <h5 class="card-title" style="font-size: 25px; text-align: center; "><b>Employees</b></h5>
+                
+                <p class="card-text" style="font-size: 50px; text-align: center;">{{EmployeeDashBoard.totalEmployees}}</p>
+            </div> <br> 
+            <div class="cardheader" >
+            </div>
+        </div>
+
+    </div>
+
+</div>

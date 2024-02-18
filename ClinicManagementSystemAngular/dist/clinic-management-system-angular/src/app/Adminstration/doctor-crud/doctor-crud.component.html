@@ -1,0 +1,61 @@
+<br> <br> <br><br><br>
+<div class="row " style="padding: 10px;">
+    <div class="col-3" style="width: 300px;"></div>
+    <div class="col-6">
+        <button type="button" class="btn  btn-block " style="width: 400px;height: 50px;" 
+        routerLink = "/Home">Go to Clinic Portal</button></div>
+    <div class="col-3" style="width: 300px;"></div>
+
+</div>
+<br> <br> <br>
+<div class="containar" style="height: 800px;">
+
+    <div class="row " style="margin-left:10px;padding: 10px;">
+        <div class="col-3" style="border-style: darkcyan solid 1px ;margin-left: 50px; "
+            *ngFor="let Doctor of DataList | paginate : options;let index=index">
+            <div *ngIf="Doctor" class="card border-secondary mb-3 shadow rounded"
+                style="max-width: 18rem;width: 400px;">
+
+                <div class="card-body text-secondary">
+                    <div> <img [src]="Doctor.photo" alt="Doctor photo"
+                            class="profilimg"></div>
+                    <br> <br><br><br>
+                    <p class="card-text"
+                        style="font-size: 35px; text-align: center;box-sizing: boder-box;line-height: 30px;">
+                        {{Doctor.name}}</p><br>
+                    <p class="card-text" style="font-size: 25px; text-align: center;box-sizing: border-box;">
+                        {{Doctor.totalRate}}</p>
+                    <p class="card-text" style="font-size: 25px; text-align: center;box-sizing: border-box;">
+                        {{Doctor.phone}}</p>
+                </div> <br>
+                <div class="cardbtn">
+                    <button type="button" (click)="doctordetails(Doctor.id)" style="  width: 100px;"
+                        class="btn  rounded-pill shadow rounded">Details</button>
+                </div><br>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="row" style=" text-align: center;margin-left: 350px;">
+    <div style=" text-align: center;">
+        <!-- <ul class="pagination  justify-content-center" style="margin:20px 0">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul> -->
+        <div class="col-xs-12 text-center margin-top-15" *ngIf="options.totalItems>=options.itemsPerPage">
+            <pagination-controls (pageChange)="getNextPrevData($event)" id='pagination' [maxSize]="10"
+                [directionLinks]="true" autohide="true" previousLabel="Previous" nextLabel="Next">
+            </pagination-controls>
+        </div>
+        <div class="col-xs-12 text-center margin-top-15" *ngIf="options.totalItems==0">
+            No Data Found
+        </div>
+    </div>
+</div>
